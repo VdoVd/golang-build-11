@@ -1,22 +1,20 @@
 package config
 
-import(
+import (
 	"github.com/jinzhu/gorm"
 	_ "github.com/jinzhu/gorm/dialects/mysql"
 )
 
-var {
-	db *gorm.DB
-}
+var db *gorm.DB
 
-func Connect()  {
-	d,err:=gorm.Open("mysql","akhil:Axlesharma@12@/simplerest?")
-	if err!=nil{
+func Connect() {
+	d, err := gorm.Open("mysql", "root:root@tcp(localhost:3306)/books?")
+	if err != nil {
 		panic(err)
 	}
-	db=d
+	db = d
 }
 
-func GetDB() *gorm.DB{
+func GetDB() *gorm.DB {
 	return db
 }
